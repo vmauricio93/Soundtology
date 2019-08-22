@@ -1,0 +1,2012 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/mauro/soundtology#"
+     xml:base="http://purl.org/mauro/soundtology"
+     xmlns:dc="http://purl.org/dc/elements/1.1"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://purl.org/mauro/soundtology">
+        <owl:versionIRI rdf:resource="http://purl.org/mauro/soundtology/1.0.0"/>
+        <dc:description xml:lang="en">An ontology about sound libraries for music production</dc:description>
+        <dc:title xml:lang="en">Soundtology</dc:title>
+        <terms:contributor>Mauricio Vargas Cano</terms:contributor>
+        <terms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soundtology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1title"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#equivalentClass -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#equivalentClass"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#duration -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#duration"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasAudioFile -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasAudioFile">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundLibrary"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundPack"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasAudioFileCharacteristic -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasAudioFileCharacteristic">
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#AudioFileCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasCustomCharacteristic -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasCustomCharacteristic">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#CustomCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasFormat -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasFormat">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#hasAudioFileCharacteristic"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#FormatCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasKey -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasKey">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#hasMusicalCharacteristic"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasMusicalCharacteristic -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasMusicalCharacteristic">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#MusicalCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasNumberOfChannels -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasNumberOfChannels">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#hasAudioFileCharacteristic"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#NumberOfChannelsCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasProduced -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasProduced">
+        <owl:inverseOf rdf:resource="http://purl.org/mauro/soundtology#isProducedBy"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#Author"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundLibrary"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundPack"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasQuality -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasQuality">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#isPartOfSoundCategory"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#Quality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasSoundPack -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasSoundPack">
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#SoundLibrary"/>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#SoundPack"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#hasTag -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#hasTag">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#hasCustomCharacteristic"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#Tag"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#isInstrument -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#isInstrument">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#isPartOfSoundCategory"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#isPartOfGenre -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#isPartOfGenre">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#isPartOfSoundCategory"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#isPartOfSoundCategory -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#isPartOfSoundCategory">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#SoundCategory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#isPartOfSoundCollection -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#isPartOfSoundCollection">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundPack"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundLibrary"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundPack"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#isProducedBy -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/mauro/soundtology#isProducedBy">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundLibrary"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundPack"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/mauro/soundtology#Author"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withAudioFileCharacteristic -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withAudioFileCharacteristic">
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#duration"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#integer"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withBPM -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withBPM">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withMusicalCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">The pace of music measured by the number of beats occurring in 60 seconds</rdfs:comment>
+        <rdfs:label xml:lang="en">withBPM</rdfs:label>
+        <rdfs:seeAlso>https://www.thefreedictionary.com/bpm</rdfs:seeAlso>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withBitDepth -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withBitDepth">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withAudioFileCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withChannels -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withChannels">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withAudioFileCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withCustomCharacteristic -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withCustomCharacteristic">
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withDescription">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withDuration -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withDuration">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withAudioFileCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withFileName -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withFileName">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withAudioFileCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withFileSize -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withFileSize">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withAudioFileCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withFormat">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withAudioFileCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withMusicalCharacteristic -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withMusicalCharacteristic">
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withNonAudioFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withNonAudioFormat">
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withProducerName -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withProducerName">
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#Author"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withSampleRate -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withSampleRate">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withAudioFileCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#withTag -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/mauro/soundtology#withTag">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/mauro/soundtology#withCustomCharacteristic"/>
+        <rdfs:domain rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFile -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#AudioFile">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/mauro/soundtology#hasAudioFileCharacteristic"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/mauro/soundtology#AudioFileCharacteristic"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A computer file that contains digitized audio either in the Compact Disc (CDDA) format or in an MP3, AAC or other compressed  or uncompressed format</rdfs:comment>
+        <rdfs:label xml:lang="en">AudioFile</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://encyclopedia2.thefreedictionary.com/Audio+file</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileCharacteristic -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#AudioFileCharacteristic">
+        <rdfs:comment xml:lang="en">A digital signal process characteristic of an AudioFile</rdfs:comment>
+        <rdfs:label xml:lang="en">AudioFileCharacteristic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Author -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#Author">
+        <rdfs:comment xml:lang="en">Creator of a Sample, a SoundPack or a SoundLibrary</rdfs:comment>
+        <rdfs:label xml:lang="en">Producer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#CustomCharacteristic -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#CustomCharacteristic">
+        <rdfs:comment xml:lang="en">A metadata characteristic of an AudioFile</rdfs:comment>
+        <rdfs:label xml:lang="en">CustomCharacteristic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#FormatCharacteristic -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#FormatCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#AudioFileCharacteristic"/>
+        <rdfs:comment xml:lang="en">An AudioFile format is a file format for storing digital audio data on a computer system. The bit layout of the audio data (excluding metadata) is called the audio coding format and can be uncompressed, or compressed to reduce the file size, often using lossy compression</rdfs:comment>
+        <rdfs:label xml:lang="en">FormatCharacteristic</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://encyclopedia.thefreedictionary.com/Audio+file+format</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Genre -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#Genre">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#SoundCategory"/>
+        <rdfs:comment xml:lang="en">A category of artistic composition, as in music or literature, marked by a distinctive style, form, or content</rdfs:comment>
+        <rdfs:label xml:lang="en">Genre</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://www.thefreedictionary.com/genre</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Instrument -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#Instrument">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#SoundCategory"/>
+        <rdfs:comment xml:lang="en">A category defined by the device designed to enable a person to make musical sounds, as by blowing into it, striking it, depressing the keys on a keyboard, or plucking, strumming, or running a bow over strings</rdfs:comment>
+        <rdfs:label xml:lang="en">Instrument</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://www.thefreedictionary.com/instrument</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Key -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#Key">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#MusicalCharacteristic"/>
+        <rdfs:comment xml:lang="en">The principal tonality of a musical work or Sample</rdfs:comment>
+        <rdfs:label xml:lang="en">Key</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://www.thefreedictionary.com/key</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#MidiFile -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#MidiFile">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+        <rdfs:comment xml:lang="en">A computer file that contains MIDI messages</rdfs:comment>
+        <rdfs:label xml:lang="en">MidiFile</rdfs:label>
+        <rdfs:seeAlso>https://encyclopedia2.thefreedictionary.com/MIDI+file</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#MusicalCharacteristic -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#MusicalCharacteristic">
+        <rdfs:comment xml:lang="en">A musical characteristic of a Sample</rdfs:comment>
+        <rdfs:label xml:lang="en">MusicalCharacteristic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#NumberOfChannelsCharacteristic -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#NumberOfChannelsCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#AudioFileCharacteristic"/>
+        <rdfs:comment xml:lang="en">Number of channels of an AudioFile. It can be Mono or Stereo</rdfs:comment>
+        <rdfs:label xml:lang="en">NumberOfChannelsCharacteristic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#OtherMediaFile -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile">
+        <rdfs:comment xml:lang="en">A computer file representing a sound sample that is not an AudioFile</rdfs:comment>
+        <rdfs:label xml:lang="en">OtherMediaFile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Quality -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#Quality">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#SoundCategory"/>
+        <rdfs:comment xml:lang="en">A category to classify the quality of an AudioFile</rdfs:comment>
+        <rdfs:label xml:lang="en">Quality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Sample -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#Sample">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+                    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">The product of taking a short extract from (a record) and mixing it into a different backing track</rdfs:comment>
+        <rdfs:label xml:lang="en">Sample</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://www.thefreedictionary.com/sound+samples</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SamplerPatch -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#SamplerPatch">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+        <rdfs:comment xml:lang="en">A patch file for a sampler machine or program</rdfs:comment>
+        <rdfs:label xml:lang="en">SamplerPatch</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SoundCategory -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#SoundCategory">
+        <rdfs:comment xml:lang="en">A category to classify Samples</rdfs:comment>
+        <rdfs:label xml:lang="en">SoundCategory</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SoundLibrary -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#SoundLibrary">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/mauro/soundtology#hasSoundPack"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.org/mauro/soundtology#SoundPack"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A collection of SoundPacks and Samples</rdfs:comment>
+        <rdfs:label xml:lang="en">SoundLibrary</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SoundPack -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#SoundPack">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/mauro/soundtology#hasAudioFile"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.org/mauro/soundtology#AudioFile"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A collection of digital sound recordings known as samples. These can range from single-hit sounds, so called one-shots, loops or even complete song kits with stems. Samples are audio files. The most widely used audio format is WAV but there are other audio formats like AIFF, Apple Loops or REX</rdfs:comment>
+        <rdfs:label xml:lang="en">SoundPack</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://support.primeloops.com/support/solutions/articles/11000033819-what-are-the-different-types-of-sound-packs-prime-loops-offer-</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SynthPreset -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#SynthPreset">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+        <rdfs:comment xml:lang="en">A preset file for a synthesizer or an instrument plugin</rdfs:comment>
+        <rdfs:label xml:lang="en">SynthPreset</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Tag -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#Tag">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#CustomCharacteristic"/>
+        <rdfs:comment xml:lang="en">A tag describing an AudioFile content</rdfs:comment>
+        <rdfs:label xml:lang="en">Tag</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Type -->
+
+    <owl:Class rdf:about="http://purl.org/mauro/soundtology#Type">
+        <rdfs:subClassOf rdf:resource="http://purl.org/mauro/soundtology#SoundCategory"/>
+        <rdfs:comment xml:lang="en">A category defined by a Sample type. Generally, you can find three types of audio content in a SoundPack: Loop, OneShot and SingleHit</rdfs:comment>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://support.primeloops.com/support/solutions/articles/11000036546-what-are-loops-one-shots-and-stems-</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#A -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#A">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#ASharp -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#ASharp">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Alternative -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Alternative">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileBySomeProducer -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#AudioFileBySomeProducer">
+        <isProducedBy rdf:resource="http://purl.org/mauro/soundtology#SomeProducer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileCQ1 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#AudioFileCQ1">
+        <hasKey rdf:resource="http://purl.org/mauro/soundtology#C"/>
+        <isInstrument rdf:resource="http://purl.org/mauro/soundtology#ElectricGuitar"/>
+        <isPartOfGenre rdf:resource="http://purl.org/mauro/soundtology#Pop"/>
+        <isPartOfSoundCategory rdf:resource="http://purl.org/mauro/soundtology#Loop"/>
+        <withBPM rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102</withBPM>
+        <withBitDepth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</withBitDepth>
+        <withChannels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</withChannels>
+        <withDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The coolest pop electric guitar loop sample ever made!</withDescription>
+        <withDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT4.3S</withDuration>
+        <withFileName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C_ElGtr_Pop_Loop102_3248001</withFileName>
+        <withFileSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3667</withFileSize>
+        <withFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WAV</withFormat>
+        <withSampleRate rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48000</withSampleRate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileCQ3 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#AudioFileCQ3">
+        <isInstrument rdf:resource="http://purl.org/mauro/soundtology#Drum"/>
+        <withFileSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3857</withFileSize>
+        <withFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MP3</withFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileLoop120BPM -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#AudioFileLoop120BPM">
+        <isPartOfSoundCategory rdf:resource="http://purl.org/mauro/soundtology#Loop"/>
+        <withBPM rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</withBPM>
+        <withFileSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2120</withFileSize>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileLowQuality -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#AudioFileLowQuality">
+        <withBitDepth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</withBitDepth>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileMP3DSharp -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#AudioFileMP3DSharp">
+        <hasKey rdf:resource="http://purl.org/mauro/soundtology#DSharp"/>
+        <isInstrument rdf:resource="http://purl.org/mauro/soundtology#Drum"/>
+        <isPartOfGenre rdf:resource="http://purl.org/mauro/soundtology#Pop"/>
+        <withFileSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2150</withFileSize>
+        <withFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MP3</withFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileMonoAIFFJazz -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#AudioFileMonoAIFFJazz">
+        <isInstrument rdf:resource="http://purl.org/mauro/soundtology#ElectricGuitar"/>
+        <isPartOfGenre rdf:resource="http://purl.org/mauro/soundtology#Jazz"/>
+        <withChannels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</withChannels>
+        <withFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AIFF</withFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#AudioFileStereoFLACBass -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#AudioFileStereoFLACBass">
+        <hasKey rdf:resource="http://purl.org/mauro/soundtology#C"/>
+        <isInstrument rdf:resource="http://purl.org/mauro/soundtology#Bass"/>
+        <withChannels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</withChannels>
+        <withFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FLAC</withFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#B -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#B">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Bass -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Bass">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Blues -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Blues">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#C -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#C">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#CSharp -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#CSharp">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Classic -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Classic">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Country -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Country">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#D -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#D">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#DSharp -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#DSharp">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Drum -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Drum">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#E -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#E">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Effect -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Effect">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#ElectricGuitar -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#ElectricGuitar">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Electronic -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Electronic">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#F -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#F">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#FSharp -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#FSharp">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Funk -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Funk">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#G -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#G">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#GSharp -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#GSharp">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Guitar -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Guitar">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#HighAudioQuality -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#HighAudioQuality"/>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#HipHop -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#HipHop">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Jazz -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Jazz">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Keyboard -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Keyboard">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Latino -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Latino">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Loop -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Loop">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Type"/>
+        <rdfs:comment xml:lang="en">A music loop is a short piece of music, usually 5-30 seconds (1-8 bars). Loops can be seamlessly repeated indefinitely creating a continuous musical pattern</rdfs:comment>
+        <rdfs:label xml:lang="en">Loop</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#LosslessCompressedAudioFormat -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#LosslessCompressedAudioFormat"/>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#LossyCompressedAudioFormat -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#LossyCompressedAudioFormat"/>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#LowAudioQuality -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#LowAudioQuality"/>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#MIDIFile90BPM -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#MIDIFile90BPM">
+        <withNonAudioFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MID</withNonAudioFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Mono -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Mono"/>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#OneShot -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#OneShot">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Type"/>
+        <rdfs:comment xml:lang="en">One-shot samples are single sound hits, for example a kick drum hit or a single bass note</rdfs:comment>
+        <rdfs:label xml:lang="en">OneShot</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Orchestral -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Orchestral">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Percussion -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Percussion">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Pop -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Pop">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Reggae -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Reggae">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Rock -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Rock">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SingleHit -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#SingleHit">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Type"/>
+        <rdfs:comment xml:lang="en">These are pieces of music that can be any length, even full song length. These usually do not loop</rdfs:comment>
+        <rdfs:label xml:lang="en">SingleHit</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SomeProducer -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#SomeProducer">
+        <withProducerName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pepito Perez</withProducerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SoundLibrary1 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#SoundLibrary1">
+        <hasSoundPack rdf:resource="http://purl.org/mauro/soundtology#SoundPackJazz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#SoundPackJazz -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#SoundPackJazz">
+        <hasAudioFile rdf:resource="http://purl.org/mauro/soundtology#AudioFileBySomeProducer"/>
+        <hasAudioFile rdf:resource="http://purl.org/mauro/soundtology#AudioFileMonoAIFFJazz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Stereo -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Stereo"/>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#Synth -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#Synth">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Instrument"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#UncompressedAudioFormat -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#UncompressedAudioFormat"/>
+    
+
+
+    <!-- http://purl.org/mauro/soundtology#World -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/mauro/soundtology#World">
+        <rdf:type rdf:resource="http://purl.org/mauro/soundtology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFile"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileCharacteristic"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Author"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#CustomCharacteristic"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#MusicalCharacteristic"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OtherMediaFile"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundCategory"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundLibrary"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundPack"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#A"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#ASharp"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Alternative"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileBySomeProducer"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileCQ1"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileCQ3"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileLoop120BPM"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileLowQuality"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileMP3DSharp"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileMonoAIFFJazz"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#AudioFileStereoFLACBass"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#B"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Bass"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Blues"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#C"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#CSharp"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Classic"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Country"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#D"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#DSharp"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Drum"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#E"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Effect"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#ElectricGuitar"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Electronic"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#F"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#FSharp"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Funk"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#G"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#GSharp"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Guitar"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#HighAudioQuality"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#HipHop"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Jazz"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Keyboard"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Latino"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Loop"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#LosslessCompressedAudioFormat"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#LossyCompressedAudioFormat"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#LowAudioQuality"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#MIDIFile90BPM"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Mono"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#OneShot"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Orchestral"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Percussion"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Pop"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Reggae"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Rock"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SingleHit"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SomeProducer"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundLibrary1"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#SoundPackJazz"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Stereo"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#Synth"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#UncompressedAudioFormat"/>
+            <rdf:Description rdf:about="http://purl.org/mauro/soundtology#World"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/mauro/soundtology#z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/mauro/ontologies/soundtology#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/mauro/ontologies/soundtology#y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If a SoundCollection has an AudioFile and that SoundCollection is part of another SoundCollection then that AudioFile is part of that upper SoundCollection</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-PartOfSoundCollection(Transitive)</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasAudioFile"/>
+                        <swrl:argument1 rdf:resource="http://purl.org/mauro/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#isPartOfSoundCollection"/>
+                                <swrl:argument1 rdf:resource="http://purl.org/mauro/soundtology#x"/>
+                                <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#isPartOfSoundCollection"/>
+                        <swrl:argument1 rdf:resource="http://purl.org/mauro/soundtology#y"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If a SoundCollection has an AudioFile then that AudioFile is part of that SoundCollection</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-PartOfSoundCollection(AudioFile)</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasAudioFile"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#isPartOfSoundCollection"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile Format is LossyCompressed then it is a LowAudioQuality AudioFile</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-LowQuality(Format)</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasFormat"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#LossyCompressedAudioFormat"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasQuality"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#LowAudioQuality"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile Format is Uncompressed then it is a HighAudioQuality AudioFile</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-HighQuality</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasFormat"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#UncompressedAudioFormat"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasQuality"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#HighAudioQuality"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If a SoundCollection has a SoundPack then that SoundPack is part of that SoundCollection</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-PartOfSoundCollection(SoundPack)</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasSoundPack"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#isPartOfSoundCollection"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile or SoundPack is produced by a Producer and that AudioFile or SoundPack is part of a collection then the Producer has also produced that collection</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-has-Produced</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#isProducedBy"/>
+                        <swrl:argument1 rdf:resource="http://purl.org/mauro/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#isPartOfSoundCollection"/>
+                                <swrl:argument1 rdf:resource="http://purl.org/mauro/soundtology#x"/>
+                                <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasProduced"/>
+                        <swrl:argument1 rdf:resource="http://purl.org/mauro/soundtology#y"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile BitDepth is less than 16 bits then it is a LowAudioQuality AudioFile</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-LowQuality(BitDepth)</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                        <swrl:arguments>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </swrl:arguments>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#withBitDepth"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasQuality"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#LowAudioQuality"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile has 1 channels then it is a Mono AudioFile</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-Mono</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#withChannels"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasNumberOfChannels"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#Mono"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile has 2 channels then it is a Stereo AudioFile</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-Stereo</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#withChannels"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasNumberOfChannels"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#Stereo"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile is encoded in FLAC, ALAC or ALS  then its format is LosslessCompressed</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-LosslessCompressed</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#withFormat"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#matches"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(?i)flac|alac|alac</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasFormat"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#LosslessCompressedAudioFormat"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile is encoded in MP3, OGG or AAC then its format is LossyCompressed</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-LossyCompressed</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#withFormat"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#matches"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(?i)mp3|ogg|aac</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasFormat"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#LossyCompressedAudioFormat"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile is encoded in WAV or AIFF  then its format is Uncompressed</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-Uncompressed</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#withFormat"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#matches"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(?i)wav|aiff</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasFormat"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#UncompressedAudioFormat"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an OtherMediaFile format is MIDI  then it is a MidiFile</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-MidiFile</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#withNonAudioFormat"/>
+                        <swrl:argument1 rdf:resource="http://purl.org/mauro/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#matches"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://purl.org/mauro/soundtology#y"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(?i)mid</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://purl.org/mauro/soundtology#MidiFile"/>
+                        <swrl:argument1 rdf:resource="http://purl.org/mauro/soundtology#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If an AudioFile SampleRate is less than 44.1 kHz then it is a LowAudioQuality AudioFile</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Def-is-LowQuality(SampleRate)</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#withSampleRate"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#y"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44100</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.org/mauro/soundtology#hasQuality"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/mauro/ontologies/soundtology#x"/>
+                        <swrl:argument2 rdf:resource="http://purl.org/mauro/soundtology#LowAudioQuality"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
